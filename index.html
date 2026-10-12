@@ -105,23 +105,18 @@
   @keyframes kenburns { from { transform: translate(-50%, -46%) scale(1); } to { transform: translate(-52%, -48%) scale(1.12); } }
   .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,14,.6) 0%, rgba(20,16,14,.68) 60%, rgba(20,16,14,.85) 100%); }
   .hero-content { position: relative; z-index: 2; padding: 0 20px; max-width: 980px; }
-  .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(218,26,31,.18); border: 1px solid rgba(218,26,31,.6); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 6px 14px; border-radius: 30px; margin-bottom: 18px; }
-  .eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 0 rgba(218,26,31,.7); animation: dot 1.6s infinite; }
-  @keyframes dot { 70% { box-shadow: 0 0 0 8px rgba(218,26,31,0); } 100% { box-shadow: 0 0 0 0 rgba(218,26,31,0); } }
   .hero h1 { color: #fff; font-weight: 600; font-size: 44px; line-height: 1.12; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,.4); }
   .hero h1 span { display: block; color: var(--red); font-size: 36px; margin-top: 6px; }
   .hero h1 span::after { content: ''; display: block; height: 3px; width: 0; margin: 12px auto 0; background: var(--red); animation: grow .8s 1s ease forwards; }
   @keyframes grow { to { width: 90px; } }
-  .hero p.sub { color: #fff; font-family: 'Roboto Condensed', sans-serif; font-size: 19px; line-height: 1.45; margin: 16px auto 0; max-width: 720px; }
-  .hero p.sub b { color: #fff; border-bottom: 2px solid var(--red); }
   .hero-ctas { display: flex; justify-content: center; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
   .trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 26px; margin-top: 26px; color: #ddd; font-size: 13px; }
   .trust span { display: inline-flex; align-items: center; gap: 7px; }
   .trust .st { color: #F2B01E; letter-spacing: 1px; }
   .trust b { color: #fff; }
-  .hero .eyebrow, .hero h1, .hero h1 span, .hero p.sub, .hero-ctas, .trust { opacity: 0; animation: heroIn .8s cubic-bezier(.2,.7,.2,1) forwards; }
-  .hero .eyebrow { animation-delay: .05s; } .hero h1 { animation-delay: .15s; } .hero h1 span { animation-delay: .3s; }
-  .hero p.sub { animation-delay: .45s; } .hero-ctas { animation-delay: .6s; } .trust { animation-delay: .75s; }
+  .hero h1, .hero h1 span, .hero-ctas, .trust { opacity: 0; animation: heroIn .8s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero h1 { animation-delay: .15s; } .hero h1 span { animation-delay: .3s; }
+  .hero-ctas { animation-delay: .45s; } .trust { animation-delay: .6s; }
   @keyframes heroIn { from { opacity: 0; transform: translateY(26px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
 
   /* ---------- FAIXA ---------- */
@@ -353,11 +348,9 @@
     /* hero */
     .hero { min-height: 0; padding: 30px 0 34px; }
     .hero-bg img { width: 640px; animation: none; }
-    .eyebrow { font-size: 10.5px; margin-bottom: 12px; }
     .hero h1 { font-size: 27px; }
     .hero h1 span { font-size: 21px; }
     .hero h1 span::after { margin-top: 10px; }
-    .hero p.sub { font-size: 16px; margin-top: 12px; }
     .hero-ctas { flex-direction: column; gap: 10px; margin-top: 20px; }
     .hero-ctas .btn { width: 100%; padding: 15px 20px; font-size: 14px; }
     .trust { gap: 6px 14px; font-size: 12px; margin-top: 18px; }
@@ -428,7 +421,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .hero .eyebrow, .hero h1, .hero h1 span, .hero p.sub, .hero-ctas, .trust, .stars span, .js .rv { opacity: 1 !important; transform: none !important; filter: none !important; }
+    .hero h1, .hero h1 span, .hero-ctas, .trust, .stars span, .js .rv { opacity: 1 !important; transform: none !important; filter: none !important; }
     .hero h1 span::after { width: 90px; }
   }
 </style>
@@ -466,9 +459,7 @@
 <section class="hero">
   <div class="hero-bg"><img src="img/pecas.webp" alt="" aria-hidden="true" fetchpriority="high"></div>
   <div class="hero-content">
-    <span class="eyebrow"><i></i>Caminhão parado é prejuízo</span>
     <h1>Feixe de molas e suspensão em Fortaleza <span>rápido, honesto e sem enrolação</span></h1>
-    <p class="sub">Caminhões, carretas, ônibus, vans, caminhonetes e carros. <b>Mande a foto do problema no WhatsApp</b> e receba seu orçamento grátis.</p>
     <div class="hero-ctas">
       <a class="btn btn-lg btn-wa" href="https://wa.me/5585997005961?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gr%C3%A1tis.%20Vou%20mandar%20a%20foto%20do%20problema." target="_blank" rel="noopener" data-track="hero">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
