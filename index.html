@@ -159,9 +159,6 @@
   /* ---------- TÍTULOS ---------- */
   .sec-title { text-align: center; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; gap: 12px; }
   .sec-title h2 { font-size: 30px; font-weight: 700; color: var(--title); text-transform: uppercase; line-height: 1.2; }
-  .sec-title::before, .sec-title::after { content: ''; width: 34px; height: 8px; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); transition: width .8s .2s ease; flex-shrink: 0; }
-  .js .sec-title.rv::before, .js .sec-title.rv::after { width: 0; }
-  .js .sec-title.rv.in::before, .js .sec-title.rv.in::after { width: 34px; }
   .sec-lead { text-align: center; max-width: 660px; margin: 0 auto 30px; font-size: 13.5px; }
 
   /* ---------- SERVIÇOS ---------- */
@@ -383,7 +380,6 @@
     .strip { display: none; }
     /* títulos */
     .sec-title h2 { font-size: 23px; }
-    .sec-title::before, .sec-title::after, .js .sec-title.rv.in::before, .js .sec-title.rv.in::after { width: 20px; }
     .sec-lead { font-size: 13px; margin-bottom: 18px; }
     /* serviços: arrasta com o dedo, mostra um pedaço do próximo */
     .services { padding: 38px 0 26px; }
