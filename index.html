@@ -83,7 +83,7 @@
   .btn-white:hover { background: transparent; color: #fff; }
 
   /* ---------- TOPO ---------- */
-  .topbar { background: var(--yellow); border-bottom: 3px solid var(--red); position: sticky; top: 0; z-index: 50; transition: box-shadow .3s; }
+  .topbar { background: var(--yellow); position: sticky; top: 0; z-index: 50; transition: box-shadow .3s; }
   .topbar.scrolled { box-shadow: 0 6px 20px rgba(0,0,0,.15); }
   .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 8px; padding-bottom: 8px; }
   .logo img { height: 60px; width: auto; transition: height .3s; }
@@ -126,14 +126,15 @@
   .strip .wrap { display: grid; grid-template-columns: 1fr 1.15fr 1fr; height: 96px; }
   .strip-item { display: flex; align-items: center; gap: 16px; position: relative; padding: 0 10px; }
   .strip-item.mid { justify-content: center; }
-  .strip-item.mid::before { content: ''; position: absolute; inset: 0 -30px; background: var(--red); transform: skewX(-30deg); z-index: 0; }
+  .strip-item.mid::before { content: ''; position: absolute; inset: 0 -30px; background: var(--yellow); transform: skewX(-30deg); z-index: 0; }
+  .strip-item.mid { color: var(--title); }
   .strip-item > * { position: relative; z-index: 1; }
   .strip-item.last { justify-content: flex-end; }
   .circle { position: relative; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--red); color: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.08); transition: transform .35s; }
   .circle::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid currentColor; opacity: 0; animation: pulse 2.4s ease-out infinite; }
   .strip-item:not(.mid) .circle { background: var(--yellow); color: var(--yellow); }
   .strip-item:not(.mid) .circle svg { stroke: var(--dark); }
-  .strip-item.mid .circle { background: var(--red-dark); box-shadow: 0 0 0 4px rgba(0,0,0,.08); }
+  .strip-item.mid .circle { background: var(--red); color: var(--red); box-shadow: 0 0 0 4px rgba(0,0,0,.08); }
   .strip-item.mid .circle::after { animation-delay: .8s; }
   .strip-item.last .circle::after { animation-delay: 1.6s; }
   @keyframes pulse { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.5); } }
@@ -154,7 +155,7 @@
   .track { display: flex; gap: 28px; }
   .card { flex: 0 0 calc((100% - 56px) / 3); scroll-snap-align: start; background: #fff; border: 1px solid #e3e3e3; border-radius: 16px; overflow: hidden; text-align: center; display: flex; flex-direction: column; transition: background .25s, border-color .25s, transform .4s ease, box-shadow .3s; }
   .card:hover { transform: translateY(-8px); box-shadow: 0 18px 34px rgba(0,0,0,.18); }
-  .card .thumb { aspect-ratio: 3 / 2; background: #ececec url(img/pecas.webp) no-repeat; background-size: var(--s); border-bottom: 5px solid var(--red); transition: background-size .6s ease; }
+  .card .thumb { aspect-ratio: 3 / 2; background: #ececec url(img/pecas.webp) no-repeat; background-size: var(--s); transition: background-size .6s ease; }
   .card:hover .thumb { background-size: calc(var(--s) * 1.1); }
   .card .thumb.t1 { --s: 153%; background-position: 90% 0%; }
   .card .thumb.t2 { --s: 164%; background-position: 63% 79%; }
@@ -165,9 +166,7 @@
   .card h3 { font-size: 16px; font-weight: 600; color: var(--title); margin-bottom: 8px; }
   .card p { font-size: 12px; line-height: 1.75; margin-bottom: 16px; flex: 1; }
   .card .btn { align-self: center; }
-  .card.featured { background: var(--dark); border-color: var(--dark); }
-  .card.featured .thumb { border-bottom-color: var(--yellow); }
-  .card.featured h3 { color: #fff; }
+  .card.featured { background: var(--dark); border-color: var(--dark); }  .card.featured h3 { color: #fff; }
   .card.featured p { color: #d2d2d2; }
   .arrow { position: absolute; top: 45%; transform: translateY(-50%); background: none; border: 0; cursor: pointer; color: #555; padding: 6px; transition: color .2s, transform .2s; }
   .arrow:hover { color: var(--red); }
