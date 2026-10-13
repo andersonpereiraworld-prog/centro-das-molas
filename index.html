@@ -20,7 +20,7 @@
 ================================== -->
 
 <link rel="icon" href="img/logo.png">
-<link rel="preload" as="image" href="img/pecas.webp">
+<link rel="preload" as="image" href="img/banner-hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
@@ -98,21 +98,22 @@
   .nav .btn { padding: 10px 20px; font-size: 11px; }
 
   /* ---------- HERO ---------- */
-  .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #161616; padding: 60px 0 70px; }
-  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #3a2a24 0%, #1b1716 55%, #0f0f0f 100%); will-change: transform; }
-  .hero-bg img { position: absolute; left: 50%; top: 50%; width: 900px; max-width: none; transform: translate(-50%, -46%); opacity: .5; animation: kenburns 18s ease-in-out infinite alternate; }
-  @keyframes kenburns { from { transform: translate(-50%, -46%) scale(1); } to { transform: translate(-52%, -48%) scale(1.12); } }
-  .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,14,.6) 0%, rgba(20,16,14,.68) 60%, rgba(20,16,14,.85) 100%); }
-  .hero-content { position: relative; z-index: 2; padding: 0 20px; max-width: 980px; }
-  .hero h1 { color: #fff; font-weight: 600; font-size: 44px; line-height: 1.12; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,.4); }
-  .hero h1 span { display: block; color: var(--red); font-size: 36px; margin-top: 6px; }
-  .hero h1 span::after { content: ''; display: block; height: 3px; width: 0; margin: 12px auto 0; background: var(--red); animation: grow .8s 1s ease forwards; }
+  /* banner 2048x768 ocupando toda a largura; texto no espaço vazio da esquerda */
+  .hero { position: relative; height: clamp(460px, 37.5vw, 760px); display: flex; align-items: center; overflow: hidden; background: #eef0f2; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: right center; }
+  .hero-content { position: relative; z-index: 2; width: 100%; }
+  .hero-text { max-width: min(560px, 44vw); }
+  .hero h1 { color: var(--title); font-weight: 700; font-size: clamp(32px, 2.9vw, 46px); line-height: 1.1; text-transform: uppercase; }
+  .hero h1 span { display: block; color: var(--red); font-size: clamp(22px, 2vw, 32px); font-weight: 600; margin-top: 8px; }
+  .hero h1 span::after { content: ''; display: block; height: 3px; width: 0; margin: 14px 0 0; background: var(--red); animation: grow .8s 1s ease forwards; }
   @keyframes grow { to { width: 90px; } }
-  .hero-ctas { display: flex; justify-content: center; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
-  .trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 26px; margin-top: 26px; color: #ddd; font-size: 13px; }
+  .hero-ctas { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; width: max-content; max-width: min(620px, 50vw); }
+  .hero .btn-ghost { color: var(--title); border-color: var(--title); }
+  .hero .btn-ghost:hover { background: var(--title); color: #fff; border-color: var(--title); }
+  .trust { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 24px; color: #555; font-size: 13px; }
   .trust span { display: inline-flex; align-items: center; gap: 7px; }
   .trust .st { color: #F2B01E; letter-spacing: 1px; }
-  .trust b { color: #fff; }
+  .trust b { color: var(--title); }
   .hero h1, .hero h1 span, .hero-ctas, .trust { opacity: 0; animation: heroIn .8s cubic-bezier(.2,.7,.2,1) forwards; }
   .hero h1 { animation-delay: .15s; } .hero h1 span { animation-delay: .3s; }
   .hero-ctas { animation-delay: .45s; } .trust { animation-delay: .6s; }
@@ -327,6 +328,15 @@
   .js .rv.in { opacity: 1; transform: none; }
 
   /* ---------- RESPONSIVO ---------- */
+  @media (max-width: 1100px) {
+    /* banner inteiro em cima, texto embaixo (sem sobrepor os veículos) */
+    .hero { height: auto; flex-direction: column; align-items: stretch; padding-bottom: 40px; }
+    .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 2048 / 768; }
+    .hero-text { max-width: 720px; margin: 28px auto 0; text-align: center; }
+    .hero h1 span::after { margin: 14px auto 0; }
+    .hero-ctas, .trust { justify-content: center; }
+    .hero-ctas { width: auto; max-width: none; }
+  }
   @media (max-width: 1000px) {
     .nav li a { padding: 0 8px; font-size: 11.5px; }
     .nav li a:hover::after, .nav li a.active::after { left: 8px; right: 8px; }
@@ -347,11 +357,12 @@
     .top-wa { display: inline-flex; align-items: center; gap: 6px; background: var(--wa); color: #fff; font-size: 13px; font-weight: 700; padding: 9px 14px; border-radius: 30px; }
     .nav { display: none; }
     /* hero */
-    .hero { min-height: 0; padding: 30px 0 34px; }
-    .hero-bg img { width: 640px; animation: none; }
+    .hero { padding-bottom: 34px; }
+    .hero-img { aspect-ratio: 4 / 3; object-position: 85% center; }
+    .hero-text { margin-top: 22px; }
     .hero h1 { font-size: 27px; }
     .hero h1 span { font-size: 21px; }
-    .hero h1 span::after { margin-top: 10px; }
+    .hero h1 span::after { margin: 10px auto 0; }
     .hero-ctas { flex-direction: column; gap: 10px; margin-top: 20px; }
     .hero-ctas .btn { width: 100%; padding: 15px 20px; font-size: 14px; }
     .trust { gap: 6px 14px; font-size: 12px; margin-top: 18px; }
@@ -455,8 +466,8 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="hero-bg"><img src="img/pecas.webp" alt="" aria-hidden="true" fetchpriority="high"></div>
-  <div class="hero-content">
+  <img class="hero-img" src="img/banner-hero.webp" alt="Feixes de molas e peças de suspensão com van e picape" width="2048" height="768" fetchpriority="high">
+  <div class="wrap hero-content"><div class="hero-text">
     <h1>Feixe de molas e suspensão em Fortaleza <span>rápido, honesto e sem enrolação</span></h1>
     <div class="hero-ctas">
       <a class="btn btn-lg btn-wa" href="https://wa.me/5585997005961?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento%20gr%C3%A1tis.%20Vou%20mandar%20a%20foto%20do%20problema." target="_blank" rel="noopener" data-track="hero">
@@ -473,7 +484,7 @@
       <span><b><em class="count" data-to="44">44</em> anos</b> de mercado</span>
       <span><b>2 unidades</b> em Fortaleza</span>
     </div>
-  </div>
+  </div></div>
 </section>
 
 <!-- FAIXA -->
@@ -997,7 +1008,6 @@
   // ---------- Progresso, menu, parallax (só desktop) e seção ativa ----------
   const bar = document.getElementById('progress');
   const nav = document.querySelector('.topbar');
-  const heroBg = document.querySelector('.hero-bg');
   const who = document.querySelector('.who'), why = document.querySelector('.why');
   const links = document.querySelectorAll('#menu a');
   const spy = [...links].map(a => [a, document.querySelector(a.getAttribute('href'))]);
@@ -1006,7 +1016,6 @@
     bar.style.width = (h > 0 ? y / h * 100 : 0) + '%';
     nav.classList.toggle('scrolled', y > 10);
     if (!calm && !mobile()) {
-      if (y < 900) heroBg.style.transform = 'translateY(' + y * 0.35 + 'px)';
       const r = who.getBoundingClientRect().top * -0.08 + 'px';
       who.style.setProperty('--py', r); why.style.setProperty('--py', r);
     }
