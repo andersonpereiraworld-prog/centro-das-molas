@@ -132,9 +132,9 @@
   .strip-item.last { justify-content: flex-end; }
   .circle { position: relative; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--red); color: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.08); transition: transform .35s; }
   .circle::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid currentColor; opacity: 0; animation: pulse 2.4s ease-out infinite; }
-  .strip-item:not(.mid) .circle { background: var(--yellow); color: var(--yellow); }
-  .strip-item:not(.mid) .circle svg { stroke: var(--dark); }
-  .strip-item.mid .circle { background: var(--red); color: var(--red); box-shadow: 0 0 0 4px rgba(0,0,0,.08); }
+  .strip-item .circle { background: var(--yellow); color: var(--yellow); }
+  .strip-item .circle svg { stroke: var(--dark); }
+  .strip-item.mid .circle { color: var(--dark); box-shadow: 0 0 0 2px var(--dark); }
   .strip-item.mid .circle::after { animation-delay: .8s; }
   .strip-item.last .circle::after { animation-delay: 1.6s; }
   @keyframes pulse { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.5); } }
@@ -155,13 +155,8 @@
   .track { display: flex; gap: 28px; }
   .card { flex: 0 0 calc((100% - 56px) / 3); scroll-snap-align: start; background: #fff; border: 1px solid #e3e3e3; border-radius: 16px; overflow: hidden; text-align: center; display: flex; flex-direction: column; transition: background .25s, border-color .25s, transform .4s ease, box-shadow .3s; }
   .card:hover { transform: translateY(-8px); box-shadow: 0 18px 34px rgba(0,0,0,.18); }
-  .card .thumb { aspect-ratio: 3 / 2; background: #ececec url(img/pecas.webp) no-repeat; background-size: var(--s); transition: background-size .6s ease; }
-  .card:hover .thumb { background-size: calc(var(--s) * 1.1); }
-  .card .thumb.t1 { --s: 153%; background-position: 90% 0%; }
-  .card .thumb.t2 { --s: 164%; background-position: 63% 79%; }
-  .card .thumb.t3 { --s: 200%; background-position: 7% 50%; }
-  .card .thumb.t4 { --s: 200%; background-position: 24% 98%; }
-  .card .thumb.t5 { --s: 200%; background-position: 96% 42%; }
+  .card .thumb { aspect-ratio: 3 / 2; background: #ececec url(img/servico-feixe.webp) no-repeat 50% 45%; background-size: 100%; transition: background-size .6s ease; }
+  .card:hover .thumb { background-size: 110%; }
   .card .body { padding: 16px 20px 24px; display: flex; flex-direction: column; flex: 1; }
   .card h3 { font-size: 16px; font-weight: 600; color: var(--title); margin-bottom: 8px; }
   .card p { font-size: 12px; line-height: 1.75; margin-bottom: 16px; flex: 1; }
@@ -520,7 +515,7 @@
       <div class="track-outer">
         <div class="track">
           <article class="card">
-            <div class="thumb t1" role="img" aria-label="Feixes de molas"></div>
+            <div class="thumb t1" role="img" aria-label="Mecânico instalando feixe de molas em caminhão"></div>
             <div class="body">
               <h3>Troca de Feixe de Molas</h3>
               <p>Troca, manutenção e instalação de feixe de molas para máxima segurança e estabilidade do seu caminhão.</p>
@@ -528,7 +523,7 @@
             </div>
           </article>
           <article class="card featured">
-            <div class="thumb t5" role="img" aria-label="Lâminas de feixe de molas"></div>
+            <div class="thumb t5" role="img" aria-label="Mecânico instalando feixe de molas em caminhão"></div>
             <div class="body">
               <h3>Arqueamento e Reforço</h3>
               <p>Molas cansadas ou baixas? Fazemos arqueamento e reforço das molas para o veículo voltar a aguentar a carga.</p>
@@ -536,7 +531,7 @@
             </div>
           </article>
           <article class="card">
-            <div class="thumb t2" role="img" aria-label="Van e caminhonete"></div>
+            <div class="thumb t2" role="img" aria-label="Mecânico instalando feixe de molas em caminhão"></div>
             <div class="body">
               <h3>Sistema de Suspensão</h3>
               <p>Amortecedores, molas e barras estabilizadoras para caminhões, ônibus, vans, caminhonetes e carros.</p>
@@ -544,7 +539,7 @@
             </div>
           </article>
           <article class="card">
-            <div class="thumb t4" role="img" aria-label="Veículo"></div>
+            <div class="thumb t4" role="img" aria-label="Mecânico instalando feixe de molas em caminhão"></div>
             <div class="body">
               <h3>Alinhamento de Trucks</h3>
               <p>Alinhamento preciso de trucks para garantir estabilidade, segurança e economia de pneus na estrada.</p>
@@ -552,7 +547,7 @@
             </div>
           </article>
           <article class="card">
-            <div class="thumb t3" role="img" aria-label="Peças de suspensão"></div>
+            <div class="thumb t3" role="img" aria-label="Mecânico instalando feixe de molas em caminhão"></div>
             <div class="body">
               <h3>Peças de Suspensão</h3>
               <p>Grande estoque de molas, lâminas, pinos, parafusos e componentes. Venda no balcão ou envio para todo o Brasil.</p>
